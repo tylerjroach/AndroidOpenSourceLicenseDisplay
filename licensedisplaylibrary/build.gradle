@@ -1,14 +1,19 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+group = 'com.tylerjroach'
+version = "1.0.1"
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "23.0.0 rc2"
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName version
     }
     buildTypes {
         release {
@@ -18,7 +23,66 @@ android {
     }
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "AndroidOpenSourceLicenseDisplay"
+        websiteUrl = "https://github.com/tylerjroach/AndroidOpenSourceLicenseDisplay"
+        vcsUrl = "https://github.com/bintray/gradle-bintray-plugin.git"
+        licenses = ["MIT"]
+        publish = true
+    }
+}
+
+def siteUrl = 'https://github.com/tylerjroach/AndroidOpenSourceLicenseDisplay'      // Homepage URL of the library
+def gitUrl = 'https://github.com/tylerjroach/AndroidOpenSourceLicenseDisplay.git'   // Git repository URL
+
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+
+                // Add your description here
+                name 'This is a library to quickly display open source licenses used in your Android app.'
+                url siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name 'MIT'
+                        url 'http://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'tylerjroach'
+                        name 'Tyler Roach'
+                        email 'tylerjroach@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+
+                }
+            }
+        }
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.1'
 }
+
+
