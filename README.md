@@ -17,4 +17,4 @@ Right now, there are no customization options. Unless this project fits your exa
 
 I'll attmept to publish this to MavenCentral if anyone is interested. Until then, git clone and assembleRelease the licensedisplaylibrary.
 
-![alt tag](https://www.dropbox.com/s/grnic5tw68wna7c/licensedisplay.png?dl=0)
+![](https://www.dropbox.com/s/grnic5tw68wna7c/licensedisplay.png?dl=1)
