@@ -28,7 +28,6 @@ public class LibraryList {
     public static class LibraryListBuilder {
         private Context context;
         private ExpandableListView expandableListView;
-        private LibraryLicenseAdapter libraryLicenseAdapter;
         private ArrayList<Library> libraries = new ArrayList<>();
 
         public LibraryListBuilder(Context context, ExpandableListView expandableListView) {

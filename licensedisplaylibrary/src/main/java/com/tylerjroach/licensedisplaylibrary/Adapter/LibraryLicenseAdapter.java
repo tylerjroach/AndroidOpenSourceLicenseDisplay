@@ -52,10 +52,10 @@ public class LibraryLicenseAdapter extends BaseExpandableListAdapter {
 
         if (view == null) {
             holder = new DetailViewHolder();
-            view = inflater.inflate(R.layout.details, null);
+            view = inflater.inflate(R.layout.license_display_library_details, null);
 
-            holder.link = (TextView) view.findViewById(R.id.library_link);
-            holder.license = (TextView) view.findViewById(R.id.library_license);
+            holder.link = (TextView) view.findViewById(com.tylerjroach.licensedisplaylibrary.R.id.license_display_library_link);
+            holder.license = (TextView) view.findViewById(com.tylerjroach.licensedisplaylibrary.R.id.license_display_library_license);
 
             view.setTag(holder);
         } else {
@@ -115,10 +115,10 @@ public class LibraryLicenseAdapter extends BaseExpandableListAdapter {
 
         if (view == null) {
             holder = new HeaderViewHolder();
-            view = inflater.inflate(R.layout.header, null);
+            view = inflater.inflate(R.layout.license_display_library_header, null);
 
-            holder.name = (TextView) view.findViewById(R.id.library_name);
-            holder.groupIndicator = (ImageView) view.findViewById(R.id.group_indicator);
+            holder.name = (TextView) view.findViewById(com.tylerjroach.licensedisplaylibrary.R.id.license_display_library_name);
+            holder.groupIndicator = (ImageView) view.findViewById(com.tylerjroach.licensedisplaylibrary.R.id.license_display_library_indicator);
 
             view.setTag(holder);
         } else {
@@ -126,9 +126,9 @@ public class LibraryLicenseAdapter extends BaseExpandableListAdapter {
         }
 
         if (isExpanded) {
-            holder.groupIndicator.setImageDrawable(context.getResources().getDrawable(R.drawable.up_arrow));
+            holder.groupIndicator.setImageDrawable(context.getResources().getDrawable(com.tylerjroach.licensedisplaylibrary.R.drawable.license_display_library_up_arrow));
         } else {
-            holder.groupIndicator.setImageDrawable(context.getResources().getDrawable(R.drawable.down_arrow));
+            holder.groupIndicator.setImageDrawable(context.getResources().getDrawable(com.tylerjroach.licensedisplaylibrary.R.drawable.license_display_library_down_arrow));
         }
 
         holder.name.setText(library.getName());

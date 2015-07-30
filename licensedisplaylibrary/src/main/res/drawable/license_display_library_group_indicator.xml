@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_empty="true" android:drawable="@drawable/license_display_library_down_arrow" />
+    <item android:state_expanded="true" android:drawable="@drawable/license_display_library_up_arrow" />
+
+</selector>
