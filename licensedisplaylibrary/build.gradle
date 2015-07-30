@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.0"
+version = "1.0.1"
 group = "com.tylerjroach"
 
 def siteUrl = 'https://github.com/tylerjroach/AndroidOpenSourceLicenseDisplay'
@@ -13,7 +13,7 @@ android {
     buildToolsVersion "23.0.0 rc2"
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
         versionName version
@@ -56,7 +56,8 @@ install {
         pom {
             project {
                 packaging 'aar'
-                name 'A simple library to display open source licenses used in your Android app '
+                name 'AndroidOpenSourceLicenseDisplay'
+                description 'A simple library to display open source licenses used in your Android app'
                 url siteUrl
                 licenses {
                     license {
