@@ -8,8 +8,8 @@ This is a library to quickly display open source licenses used in your app.
 ```
 //The license.txt files should be stored in src/main/assets of your project
 new LibraryListBuilder(context, expandableListView)
-                .addLibrary(new Library("Retrofit", "https://github.com/square/retrofit", "square_license.txt"))
-                .addLibrary(new Library("Picasso", "https://github.com/square/picasso", "square_license.txt"))
+                .addLibrary(new Library("Retrofit", "https://github.com/square/retrofit", "square_license.txt", "Copyright 2013 Square, Inc."))
+                .addLibrary(new Library("Picasso", "https://github.com/square/picasso", "square_license.txt", "Copyright 2013 Square, Inc."))
                 .build();
 ```
 
@@ -17,7 +17,7 @@ Right now, there are no customization options. Unless this project fits your exa
 
 The library is published to the jCenter repo, but not MavenCentral.
 ```
-compile 'com.tylerjroach:licensedisplaylibrary:1.0.1'
+compile 'com.tylerjroach:licensedisplaylibrary:1.0.3'
 ```
 
 ![](https://www.dropbox.com/s/grnic5tw68wna7c/licensedisplay.png?dl=1)
