@@ -29,8 +29,8 @@ public class LicenseActivityFragment extends Fragment {
         expandableListView = (ExpandableListView) rootView.findViewById(R.id.licenses_list_view);
 
         new LibraryListBuilder(context, expandableListView)
-                .addLibrary(new Library("Retrofit", "https://github.com/square/retrofit", "square_license.txt"))
-                .addLibrary(new Library("Picasso", "https://github.com/square/picasso", "square_license.txt"))
+                .addLibrary(new Library("Retrofit", "https://github.com/square/retrofit", "apache2.txt", "Copyright 2013 Square, Inc."))
+                .addLibrary(new Library("Picasso", "https://github.com/square/picasso", "apache2.txt", "Copyright 2013 Square, Inc."))
                 .build();
 
         return rootView;

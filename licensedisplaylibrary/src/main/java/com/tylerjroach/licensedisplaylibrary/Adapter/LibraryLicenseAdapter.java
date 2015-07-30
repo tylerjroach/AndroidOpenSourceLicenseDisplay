@@ -1,7 +1,6 @@
 package com.tylerjroach.licensedisplaylibrary.Adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,23 +61,41 @@ public class LibraryLicenseAdapter extends BaseExpandableListAdapter {
             holder = (DetailViewHolder) view.getTag();
         }
 
-        holder.link.setText(library.getLink());
+        if (library.getLink() != null) {
+            holder.link.setVisibility(View.VISIBLE);
+            holder.link.setText(library.getLink());
+        } else {
+            holder.link.setVisibility(View.GONE);
+        }
 
-        try {
+        if (library.getLicenseAssetFileName() != null) {
+            try {
 
-            InputStream is = context.getAssets().open(library.getLicenseAssetFileName());
-            int size = is.available();
+                InputStream is = context.getAssets().open(library.getLicenseAssetFileName());
+                int size = is.available();
 
-            // Read the entire asset into a local byte buffer.
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
+                // Read the entire asset into a local byte buffer.
+                byte[] buffer = new byte[size];
+                is.read(buffer);
+                is.close();
 
-            // Convert the buffer into a string.
-            String licenseString = new String(buffer);
-            holder.license.setText(licenseString);
-        } catch (Exception e) {
-            Log.v("failure", e.getMessage());
+                // Convert the buffer into a string.
+                String licenseString = new String(buffer);
+                String fullLicenseString = null;
+
+                if (library.getCopyrightNotice() != null) {
+                    fullLicenseString = library.getCopyrightNotice() + "\n\n" + licenseString;
+                } else {
+                    fullLicenseString = licenseString;
+                }
+
+                holder.license.setText(fullLicenseString);
+                holder.license.setVisibility(View.VISIBLE);
+            } catch (Exception e) {
+                holder.license.setVisibility(View.GONE);
+            }
+        } else {
+            holder.license.setVisibility(View.GONE);
         }
 
         return view;
